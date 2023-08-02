@@ -1,13 +1,17 @@
-%define git 20211124
+%define git 20230802
 
 Name:		idevicerestore
-Version:	1.0.0
-Release:	1.%{git}.0
+Version:	1.0.1
+Release:	%{?git:0.%{git}.}1
 Summary:	Restore firmware files to ios devices
 Group:		System/Libraries
 License:	GPLv2+
 URL:		http://www.libimobiledevice.org/
+%if 0%{?git:1}
+Source0:	https://github.com/libimobiledevice/idevicerestore/archive/refs/heads/master.tar.gz#/%{name}-%{git}.tar.gz
+%else
 Source0:	http://www.libimobiledevice.org/downloads/%{name}-%{version}.tar.xz
+%endif
 
 BuildRequires:	pkgconfig(libirecovery-1.0)
 BuildRequires:	pkgconfig(libimobiledevice-1.0)
@@ -22,11 +26,13 @@ BuildRequires:	pkgconfig(openssl)
 A command-line application to restore firmware files to iOS devices
 
 %prep
-%autosetup -p1
+%autosetup -p1 -n %{name}-%{?git:master}%{!?git:%{version}}
+[ -e .tarball-version ] || echo %{version} >.tarball-version
 
-%build
 ./autogen.sh
 %configure
+
+%build
 %make_build
 
 %install
