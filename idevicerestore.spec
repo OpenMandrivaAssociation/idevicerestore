@@ -6,7 +6,7 @@ Release:	%{?git:0.%{git}.}1
 Summary:	Restore firmware files to ios devices
 Group:		System/Libraries
 License:	GPLv2+
-URL:		http://www.libimobiledevice.org/
+URL:		https://www.libimobiledevice.org/
 %if 0%{?git:1}
 Source0:	https://github.com/libimobiledevice/idevicerestore/archive/refs/heads/master.tar.gz#/%{name}-%{git}.tar.gz
 %else
