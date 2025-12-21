@@ -13,6 +13,11 @@ Source0:	https://github.com/libimobiledevice/idevicerestore/archive/refs/heads/m
 Source0:	http://www.libimobiledevice.org/downloads/%{name}-%{version}.tar.xz
 %endif
 
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	pkgconfig(libirecovery-1.0)
 BuildRequires:	pkgconfig(libimobiledevice-1.0)
 BuildRequires:	pkgconfig(libplist-2.0)
