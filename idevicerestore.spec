@@ -2,7 +2,7 @@
 
 Name:		idevicerestore
 Version:	1.0.1
-Release:	%{?git:0.%{git}.}1
+Release:	%{?git:0.%{git}.}2
 Summary:	Restore firmware files to ios devices
 Group:		System/Libraries
 License:	GPLv2+
